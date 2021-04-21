@@ -1,0 +1,52 @@
+20200619-------
+1. Transaction.html line---37
+   
+   After Login , the text and href change to member center.
+   there is a DEMO in Transaction.html line---37
+
+2. member.html 
+   newpage. funcion--- userinfo/ bethistory/ statement
+
+3. promotion.html
+   finished.
+
+
+
+20200630-------------------
+
+1. images file need to recover. 
+   
+    add new banner  in banner file. banner_2-6.png
+
+2. All navigation icons need to be changed. All of icons I have modified it size. 
+
+3. css need to recover. I have changed some style.
+
+
+20200702-------------------
+
+1. images file added TWO files Logo / Logo_w .  and this pic "mg_admin_logo_2.png" has been changed.
+
+2. index.html
+
+   --- line 476 to 571 has been changed. 
+   ----line 606 to 690  has been changed.
+   ----line 693 to 746 add new area "footLogo"   
+
+
+20200706------------------
+1. add new page transfer.html
+   
+   css also need to recover it. 
+
+2. Header that I have changed, new page of transfer's menu  add to top-menu. 
+
+   menu of mobile phone also remember to change it. 
+
+
+20200709------------
+1. Lost Icon in index.html in line 364,369,374,380,385
+
+2. line 475 class="mb-3" please remove it. 
+
+3. css has changed. need to recovered it. 

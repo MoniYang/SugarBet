@@ -1,0 +1,272 @@
+/* scss default */
+
+
+
+$font_style:'Montserrat',  'Microsoft JhengHei', Arial, Helvetica, sans-serif;
+$w-full:100%;
+
+// color
+$transparent:rgba(0, 0, 0, 0);
+$navy:#001F3F;
+$blue :#2916b6;
+$aqua:#7FDBFF;
+$teal :#39CCCC;
+$olive:#3D9970;
+$green:#2ECC40;
+$lime :#01FF70;
+$yellow :#FFDC00;
+$brown:#b58106;
+$deep_orange :#c24e12;
+$orange :#FF851B;
+$red :#FF4136;
+$fuchsia :#F012BE;
+$light:#efefef;
+$maroon :#85144B;
+$white:#fff;
+$silver:#ddd;
+$deep_gray : #6f6f6f;
+$gray : #aaa;
+$black :#1a1a1a;
+$light_black:#3f3f3f;
+$theme: #676767 ;
+$light_orange:#f7ebe0;
+$marksix_blue:#0091ff;
+$ci-color-dark: #f4d600;
+$theme_sed_color:#56585a;
+$theme_gradient: linear-gradient(135deg, rgba(247, 206, 0, 0.96) 25%, #f7d10a 26%, #fcf9a8 43%, #f9f490 62%, #ffc800 76%);
+
+
+
+
+
+@mixin w-full {
+  float: left;
+  width: 100%;
+}
+
+@mixin transition {
+  transition: all .3s ease-in-out
+}
+
+//   size
+
+$baseSize: 12px;
+@function font($level: 1) {
+  @return $baseSize *$level;
+}
+
+@mixin gradient_box ( $color1, $color2, $color3) {
+  // background-image: linear-gradient(135deg, rgba(0, 31, 63, 0.8) 0%, rgba(92, 50, 175, 0.8) 48%);
+  background-image: linear-gradient(135deg, $color1 0%, $color1 48%);
+  float: left;
+  width: 100%;
+
+}
+@mixin border-small-style{
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source:linear-gradient(to right, #fefcea 0%, #fefcea 0%, #f7ce00 26%, #fcf9a9 41%, #fffcdb 44%, #f9f490 62%, #f2a900 87%, #f2a900 87%, #f2a900 88%, #fcf649 100%);
+}
+
+@mixin border-style{
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right,  rgba(247, 206, 0, 0.96) 25%, #f7d10a 26%, #fcf9a9 42%, #fcf9a8 43%, #f9f490 62%, #f2a900 76%) ;
+}
+
+
+
+
+@mixin  filter-gradient {
+  background: linear-gradient(to bottom,  rgba(9,132,233,1) 0%,rgba(4,39,163,1) 82%,rgba(4,39,163,1) 100%);
+}
+@mixin text_shadow ($text_color,$text_bg){
+  color:$text-color;
+  text-shadow: 5px 3px 5px $text_bg;
+  font-family: $font_style;
+}
+
+$btn-config:(
+	delete:(
+		class: 'delete',
+    color: $white,
+
+		bg: $red,
+  ),
+  maroon:(
+    class:'maroon',
+    color:$white,
+    bg:$maroon,
+  ),
+  orange:(
+		class: 'orange',
+    color: $white,
+
+		bg: $orange,
+  ),
+  green:(
+		class: 'green',
+    color: $white,
+  
+		bg: $green,
+  ),
+  aqua:(
+		class: 'aqua',
+    color: $white,
+  
+		bg: $aqua,
+  ),
+  gray:(
+		class: 'gray',
+    color: $white,
+ 
+		bg: $gray,
+  ),
+  white:(
+		class: 'white',
+    color: $black,
+  
+		bg: $white,
+  ),
+ 
+);
+
+@mixin button-variant($color, $bg ) {
+  color: $color;
+  background-color:$bg;
+
+  @include transition;
+  // border-color: $border;
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active{
+      background-color: $color;
+      transition: all 0.3s ease;
+      color:$bg;
+      outline: none;
+    }
+}
+
+%btn {
+  // 結構
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-align: center;
+  vertical-align: middle;
+  text-justify:inter-ideograph;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 30px;
+  background-image: none;
+  // border: 1px solid transparent;
+  
+  &:hover, &:focus {
+    // color: #333;
+    // background-color: #e6e6e6;
+  }
+ 
+}
+@each $name, $value in $btn-config {
+  $class: map-get($value, class);
+  $color: map-get($value, color);
+
+  $bg: map-get($value, bg);
+  // $border-color: map-get($value, border-color);
+
+  .#{$class}_btn{
+    @extend %btn;
+    @include  button-variant($color, $bg);
+  }
+}
+
+
+@mixin button-bg($bg, $text , $bg_2 , $text_2) {
+  background: $bg;
+  color: $text;
+  &:active, 
+  &:focus, 
+  &:hover {
+    background-color: $bg_2;
+    transition: all 0.3s ease;
+    color: $text_2;
+  }
+
+  
+  i {
+    margin-right: 5px;
+  }
+}
+
+
+
+
+@mixin line-button( $text, $border-color, $bg , $text_2) {
+  background:transparent;
+  color: $text;
+  // border-radius: 20px;
+  padding:3px 8px;
+  border:1px solid $border-color;
+  text-shadow: 0px;
+  a{
+    color:$text;
+  }
+  &:focus,
+  &:active,
+  &:hover {
+    background-color: $bg!important;
+    transition: all 0.3s ease;
+    color: $text_2;
+    a{
+      color:$text_2;
+    }
+  }
+  i {
+    margin-right: 5px;
+  }
+}
+
+
+
+
+
+
+// demo
+
+$max: 50;
+$offset: 5;
+$unit: 'px'; // Feel free to change the unit.
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+
+// @include list-loop('.p-l-', 'padding-left');
+
+@include list-loop('.mt-', 'margin-top');
+@include list-loop('.mr-', 'margin-right');
+@include list-loop('.mb-', 'margin-bottom');
+@include list-loop('.ml-', 'margin-left');
+@include list-loop('.m', 'margin');
+// Paddings
+@include list-loop('.pt-', 'padding-top');
+@include list-loop('.pr-', 'padding-right');
+@include list-loop('.pb-', 'padding-bottom');
+@include list-loop('.pl-', 'padding-left');
+@include list-loop('.p-', 'padding');
+
+
+@mixin rwdw($max){
+    @media only screen and (max-width:$max+px) {
+        @content;
+    }
+}
