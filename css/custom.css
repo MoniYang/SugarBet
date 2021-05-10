@@ -2972,6 +2972,33 @@ img {
   }
 }
 
+.bonusItem__tag {
+  position: absolute;
+  right: -15px;
+  width: auto !important;
+  transform: rotate(10deg);
+  margin-top: -15px;
+}
+@media only screen and (max-width: 991px) {
+  .bonusItem__tag {
+    margin-top: 10px;
+    right: 0px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .bonusItem__tag {
+    margin-top: 15px;
+    right: 0px;
+  }
+}
+.bonusItem__tag img {
+  max-width: 50px;
+}
+@media only screen and (max-width: 480px) {
+  .bonusItem__tag img {
+    max-width: 35px;
+  }
+}
 .bonusItem__Inner {
   height: 100%;
   text-align: center;
